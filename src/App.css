@@ -1,8 +1,15 @@
-th, td, tr{
+td,tr{
   padding: 1px !important;
   text-align: center !important; 
   vertical-align: middle !important;
-}
+ }
+
+th{
+  padding: 0px !important;
+  text-align: center !important; 
+  vertical-align: middle !important;
+  font-size: 13px !important;  
+  }
 
 
 
@@ -256,48 +263,65 @@ input{
   font-size: 20px;
   font-weight: 600;
   margin-left: 20px;
-    gap: 25px;
-    cursor: pointer;
+  gap: 25px;
+  cursor: pointer;
 }
 
 .form-warppar{
-  background-color: white;
-  
+  background-color: white;  
   width: 97%;
   margin: 25px;
   border-radius: 5px;
+  height:auto;
   
 }
 
 .clientInfo{
   text-align: start;  
   padding: 20px;
+  padding-bottom: 0px;
   font-weight: 500;
   font-size: larger;
 }
 
 
-.form{
-  display: grid;
-  grid-template-columns:repeat(3, 2fr) ;
-  grid-template-rows:repeat(8,70px) ;
-  gap: 15px;
+.form{  
+  display: flex;
+  flex-direction: column;
+  width: 70%; 
+  
 }
+
+
+.inputallignment{
+  display: flex;
+   
+}
+
+.label_input_container{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  margin-top: 10px;
+  padding-left: 20px;
+  width: 100%;
+ 
+}
+
 
 input{
-  margin-top: 10px;
-}
+  margin-top: 5px;
+  }
 
-.addressInput{
-  grid-column: span 2
-  
+.addinputallignment{
+  width: 98%;
 }
 
 .optional-input{
   height: 45px;
   border: 2px solid dodgerblue;
   border-radius: 5px;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .options{
@@ -311,20 +335,10 @@ input{
   
 }
 
-
-.label_input_container{
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  padding-left: 20px;
-}
-
-
-
 .file_input{
   display: none;
   border: 2px solid dodgerblue;
-  width: 450px;
+  width: 485px;
   height: 40px; 
   margin-left: 20px;
   border-radius: 5px;

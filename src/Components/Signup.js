@@ -24,8 +24,7 @@ function Signup({ toggle }) {
 
     const values = { username, email, password, cnf_password };
 
-    let error = Validation(keys, values);
-
+    let error = Validation(keys, values);  
     setErrors(error);
   }
 
@@ -48,7 +47,7 @@ function Signup({ toggle }) {
           "https://client-backend-theta.vercel.app/api/user/register",
           signUpData
         );
-        console.log("Response data:", res);
+        // console.log("Response data:", res);
 
         if (res.status == 200) {
           toast.success("Registerd Successfully!");

@@ -37,6 +37,7 @@ function Clientform() {
     const formData = new FormData();
     for (const key in clientData) {
       formData.append(key, clientData[key]);
+      
     }
 
     if (selectedFile) {
@@ -120,6 +121,7 @@ function Clientform() {
       <div className="form-warppar">
         <p className="clientInfo">CLIENT INFO</p>
         <form className="form" name="form">
+          <div className="inputallignment">
           <div className="label_input_container">
             <label>Client Name*</label>
             <input
@@ -138,7 +140,8 @@ function Clientform() {
               name="code"
             ></input>
           </div>
-          <div></div>
+          </div>
+          <div className="inputallignment">
           <div className="label_input_container">
             <label>Email*</label>
             <input
@@ -157,7 +160,8 @@ function Clientform() {
               name="contact"
             ></input>
           </div>
-          <div></div>
+          </div>
+          <div className="inputallignment">
           <div className="label_input_container">
             <label>Landline Number</label>
             <input
@@ -176,19 +180,20 @@ function Clientform() {
               name="website_link"
             ></input>
           </div>
-          <div></div>
-          <div className="label_input_container">
+          </div>
+          <div className="addinputallignment">
+          <div className="label_input_container" >
             <label>Address*</label>
             <input
               placeholder="Enter Client Address"
               type="text"
-              className="addressInput"
               onChange={handleChange}
               name="address"
+              
             ></input>
           </div>
-          <div></div>
-          <div></div>
+          </div>     
+          <div className="inputallignment">
           <div className="label_input_container">
             <label>State*</label>
             <select
@@ -225,7 +230,8 @@ function Clientform() {
               {/* </optgroup> */}
             </select>
           </div>
-          <div></div>
+          </div>
+          <div className="inputallignment">
           <div className="label_input_container">
             <label>Pincode*</label>
             <input
@@ -250,7 +256,8 @@ function Clientform() {
               {/* </optgroup> */}
             </select>
           </div>
-          <div></div>
+          </div>
+          
           <div className="swiper">
             <label>Upload Logo</label>
             <Switch
@@ -259,9 +266,8 @@ function Clientform() {
               inputProps={{ "aria-label": "controlled" }}
               color="success"
             />
-          </div>
-          <div></div>
-          <div></div>
+          </div>         
+          
           <div className="file_input">
             <input
               type="file"
@@ -270,6 +276,7 @@ function Clientform() {
               onChange={handleFileChange}
             ></input>
           </div>
+         
         </form>
       </div>
       <div className="clnt-form-btns">

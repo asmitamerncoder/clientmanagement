@@ -28,31 +28,29 @@ export default function ValidateField(name, value) {
   return error;
 }
 
-
-export function Validation(name,value){
-
+export function Validation(name, value) {
   const [username, email, password, cnf_password] = name;
 
-//   // const {username, email, password, cnf_password} = value;
-//  console.log(">>>>>>>>>>>")
-//   console.log("value :", value);
-//   console.log("name :", name)
+  //   // const {username, email, password, cnf_password} = value;
+  //  console.log(">>>>>>>>>>>")
+  //   console.log("value :", value);
+  //   console.log("name :", name)
 
   let error = {};
 
-  if (value.username == "") {
+  if (value.username == "" || value.username == undefined) {
     error.username = "Enter Username";
   }
 
-  if (value.email == "") {
+  if (value.email == "" || value.email == undefined) {
     error.email = "Enter Email";
   }
 
-  if (value.password == "" ) {
+  if (value.password == "") {
     error.password = "Enter Password";
   }
 
-  if (value.cnf_password == "" ) {
+  if (value.cnf_password == "") {
     error.cnf_password = "Enter Password";
   }
 
@@ -60,4 +58,3 @@ export function Validation(name,value){
 
   return error;
 }
-

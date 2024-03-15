@@ -38,7 +38,7 @@ function Login({ toggle }) {
 
     const { name, value } = e.target;
 
-    console.log(name, value);
+    // console.log(name, value);
 
     setLoginData({ ...loginData, [name]: value });
   }

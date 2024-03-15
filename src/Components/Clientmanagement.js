@@ -36,6 +36,7 @@ function Clientmanagement() {
   const [loading, setLoading] = useState(false);
   const [tooltip, setTooltip] = useState(false);
   const [selectedItem, setSelectedItem] = useState([]);
+  const [checked, setChecked] = useState(false);
 
   const navigate = useNavigate();
 
@@ -47,17 +48,34 @@ function Clientmanagement() {
 
   // console.log(token);
 
-  const switchHandleChange = (id) => {
-    setClientData((clientData) => {
-      return clientData.map((data) => {
-        if (data.id === id) {
-          // Create a new object with the updated property
-          return { ...clientData, checked: !data.checked };
+  const switchHandleChange = async (id) => {
+    console.log("id", id);
+    console.log("status changed!");
+    try {
+      const response = await axios.get(
+        `https://client-backend-theta.vercel.app/api/client/${id}?pageNo=${
+          page + 1
+        }&limit=${rowsPerPage}`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
         }
-        return data; // For other items, return them unchanged
-      });
-    });
-    // setChecked(el._id);
+      );
+
+      const result = response.data.data;
+      console.log("result", result);
+
+      setChecked(!checked);
+
+      dispatch(setRows(result));
+
+      if (response.status == 200) {
+        toast.success("Status Suceessfully Changed");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   const handleClick = (id) => {
@@ -148,7 +166,7 @@ function Clientmanagement() {
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
+    setPage(0);    
   };
 
   const VisuallyHiddenInput = styled("input")({
@@ -405,8 +423,10 @@ function Clientmanagement() {
                       <TableCell>{el?.contact || "NA"}</TableCell>
                       <TableCell>
                         <Switch
-                          checked={el?.checked}
-                          onChange={switchHandleChange}
+                          checked={el.status}
+                          onChange={() => {
+                            switchHandleChange(el?._id);
+                          }}
                           inputProps={{ "aria-label": "controlled" }}
                           color="success"
                         />
